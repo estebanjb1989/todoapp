@@ -11,6 +11,7 @@ import {
   TodoList,
   NewItemContainer,
   ErrorText,  
+  Filler
 } from "./styles"
 
 export default function TodoListView() {
@@ -118,6 +119,7 @@ export default function TodoListView() {
             />
           ))}
       </TodoList>
+      <Filler />
     </Container>
   );
 }

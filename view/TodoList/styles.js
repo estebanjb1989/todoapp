@@ -26,3 +26,7 @@ export const TodoList = styled.View`
 export const ErrorText = styled(Text)`
   color: red;
 `;
+
+export const Filler = styled.View`
+  height: 120px;
+`
