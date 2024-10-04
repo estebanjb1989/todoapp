@@ -10,7 +10,7 @@ import {
   TodoInput,
   TodoList,
   NewItemContainer,
-  ErrorText
+  ErrorText,  
 } from "./styles"
 
 export default function TodoListView() {
@@ -19,25 +19,11 @@ export default function TodoListView() {
   const [currentError, setCurrentError] = useState(null)
   const [loading, setLoading] = useState(false)
 
-  const list = useTodoStore(state => (
-    state.list
-  ))
-
-  const push = useTodoStore(state => (
-    state.push
-  ))
-
-  const remove = useTodoStore(state => (
-    state.remove
-  ))
-
-  const exists = useTodoStore(state => (
-    state.exists
-  ))
-
-  const done = useTodoStore(state => (
-    state.done
-  ))
+  const list = useTodoStore(state => state.list)
+  const push = useTodoStore(state => state.push)
+  const remove = useTodoStore(state => state.remove)
+  const exists = useTodoStore(state => state.exists)
+  const done = useTodoStore(state => state.done)
 
   const doneCallback = useCallback(async (item) => {
     try {
@@ -46,7 +32,7 @@ export default function TodoListView() {
       const ticks = Date.now()
       done({ ...item, quote: randomQuote, ticks })
     } catch (err) {
-      console.error(err)
+      console.error(err.message)
     } finally {
       setLoading(null)
     }
@@ -90,6 +76,8 @@ export default function TodoListView() {
     <Container>
       <NewItemContainer>
         <TodoInput
+          placeholder="What needs to be done?"
+          placeholderTextColor="lightgrey"
           ref={textInputRef}
           value={currentText}
           onChangeText={(text) => setCurrentText(text)}

@@ -5,8 +5,11 @@ import {
   TextContainer,
   QuoteLabel,
   AuthorLabel,
-  DoneBadge
+  DoneBadge,
+  TimeAgoLabel,
+  TimeAgoContainer
 } from './styles'
+import { getTimeAgoFromTS } from "../../../helper/date"
 import Ionicons from '@expo/vector-icons/Ionicons'
 
 export const TodoListItem = ({
@@ -25,6 +28,11 @@ export const TodoListItem = ({
 
   return (
     <Container key={item.text}>
+      {item.ticks ?
+        <TimeAgoContainer>
+          <TimeAgoLabel>{getTimeAgoFromTS(item.ticks)}</TimeAgoLabel>
+        </TimeAgoContainer>
+        : null}
       <TextContainer>
         <Text>{item.text}</Text>
       </TextContainer>
@@ -37,13 +45,13 @@ export const TodoListItem = ({
       ) : (
         <ButtonsContainer>
           <TouchableOpacity disabled={!!loading} onPress={handleRemove(item)}>
-            <Ionicons name="remove-circle" size={24}
+            <Ionicons name="remove-circle" size={21}
               color={loading?.id === item.id ? "grey" : "red"} />
           </TouchableOpacity>
 
           <TouchableOpacity disabled={!!loading} onPress={handleDone(item)}>
             {loading?.id === item.id ? <ActivityIndicator /> :
-              <Ionicons name="checkmark-circle" size={24} color="green" />
+              <Ionicons name="checkmark-circle" size={21} color="green" />
             }
           </TouchableOpacity>
         </ButtonsContainer >

@@ -14,7 +14,10 @@ function TodoStack() {
         name={navigationRoutes.todoStack.list}
         component={TodoList}
         options={{
-          title: "TODOList"
+          title: "TODOList",
+          headerTitleStyle: {
+            userSelect: "none"
+          }
         }}
       />
     </Stack.Navigator>

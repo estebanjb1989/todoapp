@@ -27,6 +27,14 @@ export const AuthorLabel = styled.Text`
   font-size: 12px;
 `
 
+export const TimeAgoContainer = styled.View`
+  align-items: flex-end;
+`
+
+export const TimeAgoLabel = styled.Text`  
+  font-size: 8px;
+`
+
 export const DoneBadge = styled.Text`
   background-color: green;
   color: white;
@@ -35,4 +43,5 @@ export const DoneBadge = styled.Text`
   font-size: 13px;
   padding: 4px;
   border-radius: 4px;
+  user-select: none;
 `
