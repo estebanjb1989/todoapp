@@ -23,13 +23,20 @@ export default function TodoListView() {
     state.list
   ))
 
-  const {
-    push,
-    remove, 
-    exists,
-    done
-  } = useTodoStore(state => (
-    state.methods
+  const push = useTodoStore(state => (
+    state.push
+  ))
+
+  const remove = useTodoStore(state => (
+    state.remove
+  ))
+
+  const exists = useTodoStore(state => (
+    state.exists
+  ))
+
+  const done = useTodoStore(state => (
+    state.done
   ))
 
   const doneCallback = useCallback(async (item) => {

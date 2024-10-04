@@ -2,19 +2,18 @@ import styled from "styled-components/native";
 import { Text, TextInput, ScrollView } from "react-native";
 
 export const Container = styled(ScrollView)`
-  padding: 16px 32px;
+  padding: 12px 32px;
 `;
 
 export const NewItemContainer = styled.View`
-  flex-direction: row;
-  margin-top: 12px;
+  flex-direction: row;  
   align-items: center;
   gap: 12px;  
 `;
 
 export const TodoInput = styled(TextInput)`
   background-color: white;  
-  padding: 4px;
+  padding: 8px;
   width: 100%;
 `;
 

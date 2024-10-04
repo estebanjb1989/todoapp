@@ -1,8 +1,7 @@
-import { Text, ActivityIndicator } from "react-native"
+import { Text, ActivityIndicator, TouchableOpacity } from "react-native"
 import {
   Container,
   ButtonsContainer,
-  ActionButton,
   TextContainer,
   QuoteLabel,
   AuthorLabel,
@@ -37,15 +36,16 @@ export const TodoListItem = ({
         </>
       ) : (
         <ButtonsContainer>
-          <ActionButton disabled={!!loading} onPress={handleRemove(item)}>
-            <Ionicons name="remove-circle" size={24} color="red" />
-          </ActionButton>
+          <TouchableOpacity disabled={!!loading} onPress={handleRemove(item)}>
+            <Ionicons name="remove-circle" size={24}
+              color={loading?.id === item.id ? "grey" : "red"} />
+          </TouchableOpacity>
 
-          <ActionButton disabled={!!loading} onPress={handleDone(item)}>
+          <TouchableOpacity disabled={!!loading} onPress={handleDone(item)}>
             {loading?.id === item.id ? <ActivityIndicator /> :
               <Ionicons name="checkmark-circle" size={24} color="green" />
             }
-          </ActionButton>
+          </TouchableOpacity>
         </ButtonsContainer >
       )}
 

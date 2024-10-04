@@ -1,5 +1,4 @@
 import styled from "styled-components/native";
-import { TouchableOpacity } from "react-native"
 
 export const Container = styled.View`
   padding: 16px 12px;
@@ -17,10 +16,6 @@ export const ButtonsContainer = styled.View`
 export const TextContainer = styled.View`
   margin-bottom: 12px;
 `
-
-export const ActionButton = styled(TouchableOpacity)`
-  
-`;
 
 export const QuoteLabel = styled.Text`
   font-style: italic;
